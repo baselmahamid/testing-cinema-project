@@ -1,0 +1,25 @@
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.deps.json
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.dll
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.csprojAssemblyReference.cache
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.AssemblyInfoInputs.cache
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.AssemblyInfo.cs
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.pdb
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.dll
+D:\Cinema vs project\CinemaProject\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.pdb
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.deps.json
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.dll
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.pdb
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.csprojAssemblyReference.cache
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.AssemblyInfoInputs.cache
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.AssemblyInfo.cs
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.csproj.CoreCompileInputs.cache
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.dll
+C:\Users\abu3losh\Desktop\CinemaProject-master\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.pdb
+D:\Downloads\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.deps.json
+D:\Downloads\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.dll
+D:\Downloads\Cinema\FileUploadControl\bin\Debug\netcoreapp3.1\FileUploadControl.pdb
+D:\Downloads\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.csprojAssemblyReference.cache
+D:\Downloads\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.AssemblyInfoInputs.cache
+D:\Downloads\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.AssemblyInfo.cs
+D:\Downloads\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.dll
+D:\Downloads\Cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.pdb
