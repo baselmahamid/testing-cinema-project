@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Downloads\\Cinema\\Cinema\\Cinema.csproj": {}
+    "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj": {}
   },
   "projects": {
-    "D:\\Downloads\\Cinema\\Cinema\\Cinema.csproj": {
+    "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Cinema\\Cinema\\Cinema.csproj",
+        "projectUniqueName": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
         "projectName": "Cinema",
-        "projectPath": "D:\\Downloads\\Cinema\\Cinema\\Cinema.csproj",
+        "projectPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
         "packagesPath": "C:\\Users\\Basel\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Cinema\\Cinema\\obj\\",
+        "outputPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Downloads\\Cinema\\FileUploadControl\\FileUploadControl.csproj": {
-                "projectPath": "D:\\Downloads\\Cinema\\FileUploadControl\\FileUploadControl.csproj"
+              "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
+                "projectPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj"
               }
             }
           }
@@ -94,14 +94,14 @@
         }
       }
     },
-    "D:\\Downloads\\Cinema\\FileUploadControl\\FileUploadControl.csproj": {
+    "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Cinema\\FileUploadControl\\FileUploadControl.csproj",
+        "projectUniqueName": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
         "projectName": "FileUploadControl",
-        "projectPath": "D:\\Downloads\\Cinema\\FileUploadControl\\FileUploadControl.csproj",
+        "projectPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
         "packagesPath": "C:\\Users\\Basel\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Cinema\\FileUploadControl\\obj\\",
+        "outputPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

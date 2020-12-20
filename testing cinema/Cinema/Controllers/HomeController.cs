@@ -111,9 +111,6 @@ namespace Cinema.Controllers
 
 
         }
-
-
-        //public IActionResult checkseat()
      
 
         public IActionResult Index()
@@ -137,5 +134,17 @@ namespace Cinema.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //adding details page
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        { 
+            var model = _context.MovieDetails.Where(p => p.Id == id).FirstOrDefault();
+            return View(model);
+        
+        }
+
+
     }
 }

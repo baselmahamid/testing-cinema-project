@@ -61,6 +61,15 @@ namespace Cinema.Controllers
             return View(getBookingTable);
         } 
 
+        //adding the admin action for admin page
+
+            [HttpGet]
+        public IActionResult admin()
+        {
+            var getMovieList = _context.MovieDetails.ToList();
+
+            return View(getMovieList);
+        }
         
 
     }
