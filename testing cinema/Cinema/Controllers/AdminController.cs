@@ -41,6 +41,10 @@ namespace Cinema.Controllers
             movie.DateAndTime = vmodel.DateofMovie;
             movie.Price = vmodel.Price;
             movie.category = vmodel.category;
+            movie.hall = vmodel.hall;
+            movie.Age = vmodel.Age;
+            movie.Seat = vmodel.Seat;
+            movie.Rating = vmodel.Rating;
             foreach (var item in files)
             {
                 movie.MoivePicture = "~/uploads/" + item.FileName.Trim();

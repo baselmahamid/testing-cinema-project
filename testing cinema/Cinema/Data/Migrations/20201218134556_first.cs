@@ -33,12 +33,13 @@ namespace Cinema.Data.Migrations
                     Movie_Name = table.Column<string>(nullable: true),
                     Movie_Details = table.Column<string>(nullable: true),
                     DateAndTime = table.Column<DateTime>(nullable: false),
-                    MoivePicture = table.Column<string>(nullable: true)
+                    MoivePicture = table.Column<string>(nullable: true),
+                    hall = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MovieDetails", x => x.Id);
-                });
+                }); ;
 
             migrationBuilder.CreateTable(
                 name: "BookingTable",

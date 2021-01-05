@@ -37,6 +37,7 @@ namespace Cinema.Controllers
             vm.Movie_Name = item.Movie_Name;
             vm.Movie_Date = item.DateAndTime;
             vm.MovieId = Id;
+            
 
             return View(vm);
         }
@@ -51,6 +52,7 @@ namespace Cinema.Controllers
             List<Cart> carts = new List<Cart>();
             string seatno = vm.SeatNo.ToString();
             int movieId = vm.MovieId;
+            
             string[] seatnoArray = seatno.Split(',');
             count = seatnoArray.Length;
 
