@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj": {}
+    "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj": {}
   },
   "projects": {
-    "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj": {
+    "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
+        "projectUniqueName": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
         "projectName": "Cinema",
-        "projectPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
-        "packagesPath": "C:\\Users\\Basel\\.nuget\\packages\\",
-        "outputPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\Cinema\\obj\\",
+        "projectPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
+        "packagesPath": "C:\\Users\\abu3losh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\Cinema\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Basel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abu3losh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
-                "projectPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj"
+              "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
+                "projectPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj"
               }
             }
           }
@@ -90,24 +90,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
+    "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
+        "projectUniqueName": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
         "projectName": "FileUploadControl",
-        "projectPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
-        "packagesPath": "C:\\Users\\Basel\\.nuget\\packages\\",
-        "outputPath": "D:\\Cinema vs project\\testing-cinema-project\\testing cinema\\FileUploadControl\\obj\\",
+        "projectPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
+        "packagesPath": "C:\\Users\\abu3losh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Basel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abu3losh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -155,7 +155,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nlDFE3fAOwMDrraNvDywuCZV7838SS+RPBbJ/am5VmxtmH1tVcEqsP3gGlUDbn0+1MgwrgE4/trkFUsEzMh+/A==",
+  "dgSpecHash": "2yN1JiY5LJ4ep7ma0EEj0ikACZPNQi0JYeUw9eXXjcMhvh0qdUlHFq+1mjwgpKM9BPo93xEh1I8aKgCiRKt4zw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\abu3losh\\Desktop\\CinemaProject-master\\Cinema\\Cinema\\Cinema.csproj",
+  "projectFilePath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\Cinema\\Cinema.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abu3losh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.0\\microsoft.aspnetcore.cryptography.internal.3.1.0.nupkg.sha512",
     "C:\\Users\\abu3losh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.0\\microsoft.aspnetcore.cryptography.keyderivation.3.1.0.nupkg.sha512",

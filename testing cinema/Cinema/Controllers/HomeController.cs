@@ -35,7 +35,7 @@ namespace Cinema.Controllers
             BookNowViewModel vm = new BookNowViewModel();
             var item = _context.MovieDetails.Where(a => a.Id == Id).FirstOrDefault();
             vm.Movie_Name = item.Movie_Name;
-            vm.Movie_Date = item.DateAndTime;
+          
             vm.MovieId = Id;
             
 
@@ -143,6 +143,8 @@ namespace Cinema.Controllers
         public IActionResult Details(int id)
         { 
             var model = _context.MovieDetails.Where(p => p.Id == id).FirstOrDefault();
+            ViewBag.pic = model.MoivePicture;
+           
             return View(model);
         
         }

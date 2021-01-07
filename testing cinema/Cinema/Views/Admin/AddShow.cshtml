@@ -1,0 +1,59 @@
+﻿@model Cinema.Models.ViewModels.MovieDetailsViewmodel
+
+@{
+    ViewData["Title"] = "AddShow";
+}
+
+<h1>AddShow</h1>
+
+<h4>ShowTime</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddShow">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Hall" class="control-label"></label>
+                <input asp-for="Hall" class="form-control" />
+                <span asp-validation-for="Hall" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seat" class="control-label"></label>
+                <input asp-for="Seat" class="form-control" />
+                <span asp-validation-for="Seat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateAndTimeS" class="control-label"></label>
+                <input asp-for="DateAndTimeS" class="form-control" />
+                <span asp-validation-for="DateAndTimeS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateAndTimeE" class="control-label"></label>
+                <input asp-for="DateAndTimeE" class="form-control" />
+                <span asp-validation-for="DateAndTimeE" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="AddShow" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="admin">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

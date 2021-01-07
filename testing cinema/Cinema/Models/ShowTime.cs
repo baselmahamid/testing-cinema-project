@@ -1,29 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cinema.Models.ViewModels
+namespace Cinema.Models
 {
-    public class MovieDetailsViewmodel
+    [Table("ShowTime")]
+    public class ShowTime
     {
+        [Key]
         public int Id { get; set; }
-        
+        [Display(Name = "Movie")]
+       
         public string Movie_Name { get; set; }
+        
         public string Movie_Details { get; set; }
-        public float Price { get; set; }
+
+
+        [Display(Name = "Movie Poster")]
+       
+        public string MoivePicture { get; set; }
+       
         public string Hall { get; set; }
-        public string MoviePicture { get; set; }
+        public float Price { get; set; }
         public int Seat { get; set; }
         public DateTime DateAndTimeS { get; set; }
         public DateTime DateAndTimeE { get; set; }
+       
+
+
 
         //adding the category
+        
         public string category { get; set; }
-    
+
+      
         public string Age { get; set; }
-       
+     
         public string Rating { get; set; }
+
     }
 }

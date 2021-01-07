@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-Cinema-7A92444A-F05D-4583-8F76-874382A63F58</UserSecretsId>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
 

@@ -1,4 +1,5 @@
-﻿@model Cinema.Models.MovieDetails
+﻿
+@model Cinema.Models.MovieDetails
 
 
 @{
@@ -9,7 +10,17 @@
 <div>
     <h4>MovieDetails</h4>
     <hr />
+
+
+
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MoivePicture)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@ViewBag.pic" width="300" height="300" asp-append-version="true" />
+
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Movie_Name)
 
@@ -23,18 +34,8 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Movie_Details)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MoivePicture)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MoivePicture)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.category)
         </dt>
@@ -49,29 +50,11 @@
         </dd>
     </dl>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DateAndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.hall)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Seat)
-            </th>
-
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-      
-
-    }
-    </table>
 <tbody>
 
+
+
+
     <div>
-        <a asp-action="Index">Back to List</a>
+        <a asp-controller="Home" asp-action="Index">Back to List</a>
     </div>
