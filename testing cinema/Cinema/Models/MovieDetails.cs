@@ -15,8 +15,9 @@ namespace Cinema.Models
         
         public string Movie_Name { get; set; }
         public string Movie_Details { get; set; }
+
        
-       
+
         [Display(Name = "Movie Poster")]
         public  string MoivePicture { get; set; }
 

@@ -35,7 +35,7 @@ namespace Cinema.Controllers
             BookNowViewModel vm = new BookNowViewModel();
             var item = _context.MovieDetails.Where(a => a.Id == Id).FirstOrDefault();
             vm.Movie_Name = item.Movie_Name;
-          
+            
             vm.MovieId = Id;
             
 
@@ -46,42 +46,42 @@ namespace Cinema.Controllers
 
 
         [HttpPost]
-        public IActionResult BookNow(BookNowViewModel vm)
-        {
-            List<BookingTable> booking = new List<BookingTable>();
-            List<Cart> carts = new List<Cart>();
-            string seatno = vm.SeatNo.ToString();
-            int movieId = vm.MovieId;
-            
-            string[] seatnoArray = seatno.Split(',');
-            count = seatnoArray.Length;
-
-            if (checkseat(seatno, movieId) == false)
-            {
-                foreach(var item in seatnoArray)
-                {
-                    carts.Add(new Cart
-                    { Amount = 150, MoiveId = vm.MovieId, UserId = _userManager.GetUserId(HttpContext.User), date = vm.Movie_Date, seatno = item } );
-                }
-                foreach (var item in carts)
-                {
-                    _context.Cart.Add(item);
-                    _context.SaveChanges();
-
-                }
-
-                TempData["Sucess"] = "Seat no Booked, Check Your Cart";
+        //public IActionResult BookNow(BookNowViewModel vm)
+        //{
+        //    List<BookingTable> booking = new List<BookingTable>();
+        //    List<Cart> carts = new List<Cart>();
+        //    int seatno = vm.SeatNo;
+        //    int movieId = vm.MovieId;
 
 
-            }
-            else
-            {
 
-                TempData["seatnomsg"] = "Please Change Your Seat number";
-            }
 
-            return RedirectToAction("BookNow");
-        }
+        //    if (checkseat(seatno, movieId) == false)
+        //    {
+        //        foreach (var item in seatnoArray)
+        //        {
+        //            carts.Add(new Cart
+        //            { Amount = 150, MoiveId = vm.MovieId, UserId = _userManager.GetUserId(HttpContext.User), date = vm.Movie_Date, seatno = item });
+        //        }
+        //        foreach (var item in carts)
+        //        {
+        //            _context.Cart.Add(item);
+        //            _context.SaveChanges();
+
+        //        }
+
+        //        TempData["Sucess"] = "Seat no Booked, Check Your Cart";
+
+
+        //    }
+        //    else
+        //    {
+
+        //        TempData["seatnomsg"] = "Please Change Your Seat number";
+        //    }
+
+        //    return RedirectToAction("BookNow");
+        //}
 
         
         private bool checkseat(string seatno, int movieId)
@@ -142,9 +142,10 @@ namespace Cinema.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         { 
-            var model = _context.MovieDetails.Where(p => p.Id == id).FirstOrDefault();
-            ViewBag.pic = model.MoivePicture;
-           
+            var model = _context.ShowTimes.Where(p => p.Id == id );
+            ViewBag.id = id;
+            
+
             return View(model);
         
         }

@@ -18,6 +18,7 @@ namespace Cinema.Controllers
         private ApplicationDbContext _context;
         private UploadInterface _upload;
         
+        
 
 
         public AdminController(ApplicationDbContext context, UploadInterface upload)
@@ -47,7 +48,8 @@ namespace Cinema.Controllers
             movie.Movie_Name = vmodel.Movie_Name;
             movie.Movie_Details = vmodel.Movie_Details;
             movie.category = vmodel.category;   
-            movie.Age = vmodel.Age;  
+            movie.Age = vmodel.Age;
+     //       movie.Prices = vmodel.Prices;
             movie.Rating = vmodel.Rating;
             foreach (var item in files)
             {
@@ -65,6 +67,7 @@ namespace Cinema.Controllers
         [HttpGet]
         public IActionResult AddShow()
         {
+            _context.SaveChanges();
             return View();
         }
 
@@ -73,17 +76,23 @@ namespace Cinema.Controllers
         {
             moviee.DateAndTimeS = vmodel.DateAndTimeS;
             moviee.DateAndTimeE = vmodel.DateAndTimeE;
-            moviee.Price = vmodel.Price;
+          
             moviee.Hall = vmodel.Hall;
             moviee.Seat = vmodel.Seat;
+          //  moviee.Prices = vmodel.Prices;
             foreach (var item in _context.MovieDetails.Where(m => m.Id==movie.Id))
             {
                 moviee.Movie_Name = item.Movie_Name;
                 moviee.Movie_Details = item.Movie_Details;
                 moviee.MoivePicture = item.MoivePicture;
                 moviee.Rating = item.Rating;
+                moviee.category = item.category;
+                moviee.Age = item.Age;
+                
 
             }
+           
+            
             _context.ShowTimes.Add(moviee);
             _context.SaveChanges();
             TempData["Sucess"] = "Save Your Movie";
@@ -137,9 +146,9 @@ namespace Cinema.Controllers
                 movie.MoivePicture = "~/uploads/" + item.FileName.Trim();
 
             }
-            ViewBag.pic = vmodel.MoviePicture;
-            _upload.Uploadfilemultiple(files);
             
+            _upload.Uploadfilemultiple(files);
+            ViewBag.pic = movie.MoivePicture;
             _context.MovieDetails.Update(movie);
 
             _context.SaveChanges();
@@ -151,6 +160,7 @@ namespace Cinema.Controllers
         {
 
             var movie = _context.MovieDetails.Where(s => s.Id == id).FirstOrDefault();
+            ViewBag.pic = movie.MoivePicture;
             return View(movie);
 
         }

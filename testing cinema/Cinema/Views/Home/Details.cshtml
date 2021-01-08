@@ -1,60 +1,114 @@
 ﻿
-@model Cinema.Models.MovieDetails
+@model IEnumerable<Cinema.Models.ShowTime>
 
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Shows Details</h1>
 <div>
-    <h4>MovieDetails</h4>
-    <hr />
 
+    @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
+    {
+        <td>
+            <img src="@item.MoivePicture" width="300" height="300" asp-append-version="true" />
+        </td>
+        <p>
+            Movie Name :
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie_Name)
+            </td>
+        </p>
 
+        <p>
+            Movie Desc :
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie_Details)
+            </td>
+        </p>
+        <p>
+            Movie Category :
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+        </p>
+        <p>
+            Age :
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+        </p>
+        <p>
+            Rating :
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+        </p>
+        <br /><br />
+        break;
+    }
 
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MoivePicture)
-        </dt>
-        <dd class="col-sm-10">
-            <img src="@ViewBag.pic" width="300" height="300" asp-append-version="true" />
+    <h3>List of shows </h3>
 
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Movie_Name)
-
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Movie_Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Movie_Details)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Movie_Details)
-        </dd>
-
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.category)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-    </dl>
 </div>
 <tbody>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hall)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateAndTimeS)
+                </th>
+
+                <th>
+
+                    @Html.DisplayNameFor(model => model.DateAndTimeE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Seat)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Prices)
+                </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hall)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAndTimeS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAndTimeE)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Seat)
+                        </td>
+
+                        <td>
+                            <a asp-controller="Home" asp-action="BookNow" asp-route-id="@item.Id">Booking  Now</a>
+
+                        </td>
+                    </tr>
+                }
+            
+        </tbody>
+    </table>
+</tbody>
 
 
 
-    <div>
-        <a asp-controller="Home" asp-action="Index">Back to List</a>
-    </div>
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>

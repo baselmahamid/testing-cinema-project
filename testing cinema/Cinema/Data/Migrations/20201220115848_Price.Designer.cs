@@ -96,7 +96,7 @@ namespace Cinema.Data.Migrations
                     b.Property<string>("Movie_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<String>("Price")
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -123,7 +123,7 @@ namespace Cinema.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<String>("Price")
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

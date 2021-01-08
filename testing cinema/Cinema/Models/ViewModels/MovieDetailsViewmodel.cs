@@ -12,7 +12,7 @@ namespace Cinema.Models.ViewModels
         
         public string Movie_Name { get; set; }
         public string Movie_Details { get; set; }
-        public float Price { get; set; }
+        public float Prices { get; set; }
         public string Hall { get; set; }
         public string MoviePicture { get; set; }
         public int Seat { get; set; }

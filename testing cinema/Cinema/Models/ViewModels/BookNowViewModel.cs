@@ -8,11 +8,12 @@ namespace Cinema.Models.ViewModels
 {
     public class BookNowViewModel
     {
-        [Key]
+        
         public string Movie_Name { get; set; }
         public DateTime Movie_Date { get; set; }
-        public string SeatNo { get; set; }
+        public int SeatNo { get; set; }
         public int Amount { get; set; }
+        [Key]
         public int MovieId { get; set; }
         
 

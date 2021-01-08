@@ -5,7 +5,6 @@ using Cinema.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Cinema.Models.ViewModels;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Data
 {
@@ -21,10 +20,6 @@ namespace Cinema.Data
         public DbSet<MovieDetails> MovieDetails { get; set; }
         public DbSet<ShowTime> ShowTimes { get; set; }
         public DbSet<Cinema.Models.ViewModels.MovieDetailsViewmodel> MovieDetailsViewmodel { get; set; }
-
-        internal void Update(Func<int, IActionResult> edit)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

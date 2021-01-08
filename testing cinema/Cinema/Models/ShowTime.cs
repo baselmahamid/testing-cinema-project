@@ -10,7 +10,8 @@ namespace Cinema.Models
     [Table("ShowTime")]
     public class ShowTime
     {
-        [Key]
+       
+        
         public int Id { get; set; }
         [Display(Name = "Movie")]
        
@@ -24,12 +25,12 @@ namespace Cinema.Models
         public string MoivePicture { get; set; }
        
         public string Hall { get; set; }
-        public float Price { get; set; }
+        
         public int Seat { get; set; }
         public DateTime DateAndTimeS { get; set; }
         public DateTime DateAndTimeE { get; set; }
        
-
+        
 
 
         //adding the category

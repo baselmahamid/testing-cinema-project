@@ -85,8 +85,44 @@ namespace Cinema.Data.Migrations
                     b.Property<string>("Age")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateAndTime")
+                    b.Property<string>("MoivePicture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Movie_Details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Movie_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MovieDetails");
+                });
+
+            modelBuilder.Entity("Cinema.Models.ShowTime", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateAndTimeE")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateAndTimeS")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Hall")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MoivePicture")
                         .HasColumnType("nvarchar(max)");
@@ -97,62 +133,64 @@ namespace Cinema.Data.Migrations
                     b.Property<string>("Movie_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<String>("Price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("Prices")
+                        .HasColumnType("real");
 
                     b.Property<string>("Rating")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Seat")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Seat")
+                        .HasColumnType("int");
 
                     b.Property<string>("category")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("hall")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("MovieDetails");
+                    b.ToTable("ShowTime");
                 });
 
             modelBuilder.Entity("Cinema.Models.ViewModels.MovieDetailsViewmodel", b =>
                 {
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Age")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateofMovie")
+                    b.Property<DateTime>("DateAndTimeE")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateAndTimeS")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<string>("Hall")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MoviePicture")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<String>("Price")
+                    b.Property<string>("Movie_Details")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Movie_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Prices")
+                        .HasColumnType("real");
 
                     b.Property<string>("Rating")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Seat")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Seat")
+                        .HasColumnType("int");
 
                     b.Property<string>("category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("hall")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Name");
+                    b.HasKey("Id");
 
                     b.ToTable("MovieDetailsViewmodel");
                 });
