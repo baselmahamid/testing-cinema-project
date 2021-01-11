@@ -11,11 +11,13 @@ using Cinema.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Cinema.Data.Migrations;
+using System.Globalization;
 
 namespace Cinema.Controllers
 {
     public class HomeController : Controller
     {
+        
         int count = 1;
         bool flag = true;
         private UserManager<ApplicationId> _userManager;
@@ -28,92 +30,96 @@ namespace Cinema.Controllers
           //  _userManager = userManager;
         }
 
+       
+       
+     
 
         [HttpGet]
         public IActionResult BookNow(int Id)
         {
             BookNowViewModel vm = new BookNowViewModel();
-            var item = _context.MovieDetails.Where(a => a.Id == Id).FirstOrDefault();
+            var item = _context.ShowTimes.Where(a => a.ShowId == Id).FirstOrDefault();
+            vm.DateAndTimeS = item.DateAndTimeS;
+            vm.DateAndTimeE = item.DateAndTimeE;
+            vm.ShowId = item.ShowId;
             vm.Movie_Name = item.Movie_Name;
+            vm.Hall = item.Hall;
+            vm.Seat = item.Seat;
+           
             
-            vm.MovieId = Id;
-            
-
             return View(vm);
+           
+        }
+
+        [HttpPost]
+        public IActionResult BookNow(BookNowViewModel vm )
+        {
+            
+            List<BookingTable> booking = new List<BookingTable>();
+            List<Cart> carts = new List<Cart>();
+            string seatno = vm.seatno.ToString();
+            int showId = vm.ShowId;
+            string[] seatnoarray = seatno.Split(',');
+            count = seatnoarray.Length;
+            
+            if (checkseat(seatno,showId)==false)
+            {
+                foreach(var item in seatnoarray)
+                {
+                    carts.Add(new Cart { ShowId = vm.ShowId,DateAndTimeE = vm.DateAndTimeE, DateAndTimeS = vm.DateAndTimeS, seatno = item });
+                
+                }
+                foreach(var item in carts)
+                {
+                    _context.Cart.Add(item);
+                    _context.SaveChanges();
+
+                }
+               
+                TempData["sucess"] = "seat no booked , check to cart";
+            }
+            else
+            {
+                
+                TempData["sucess"] = "Pleas change Your seat number";
+            }
+            return RedirectToAction("BookNow");
         }
 
 
-
-
-        [HttpPost]
-        //public IActionResult BookNow(BookNowViewModel vm)
-        //{
-        //    List<BookingTable> booking = new List<BookingTable>();
-        //    List<Cart> carts = new List<Cart>();
-        //    int seatno = vm.SeatNo;
-        //    int movieId = vm.MovieId;
-
-
-
-
-        //    if (checkseat(seatno, movieId) == false)
-        //    {
-        //        foreach (var item in seatnoArray)
-        //        {
-        //            carts.Add(new Cart
-        //            { Amount = 150, MoiveId = vm.MovieId, UserId = _userManager.GetUserId(HttpContext.User), date = vm.Movie_Date, seatno = item });
-        //        }
-        //        foreach (var item in carts)
-        //        {
-        //            _context.Cart.Add(item);
-        //            _context.SaveChanges();
-
-        //        }
-
-        //        TempData["Sucess"] = "Seat no Booked, Check Your Cart";
-
-
-        //    }
-        //    else
-        //    {
-
-        //        TempData["seatnomsg"] = "Please Change Your Seat number";
-        //    }
-
-        //    return RedirectToAction("BookNow");
-        //}
-
-        
-        private bool checkseat(string seatno, int movieId)
+            private bool checkseat(string seatno, int ShowId)
         {
-            //  throw new NotImplementedException();
             string seats = seatno;
             string[] seatreserve = seats.Split(',');
-            var seatnolist = _context.BookingTable.Where(a => a.MovieDetailsId == movieId).ToList();
+            var seatnolist = _context.Cart.Where(a => a.ShowId == ShowId).ToList();
             foreach(var item in seatnolist)
             {
                 string alreadybook = item.seatno;
-
-                foreach (var item1 in seatreserve)
+                foreach(var item1 in seatreserve)
                 {
-                    if (item1==alreadybook)
+                    if(item1==alreadybook)
                     {
                         flag = false;
                         break;
                     }
 
                 }
-
             }
-
             if (flag == false)
                 return true;
             else
                 return false;
 
-
         }
-     
+
+
+
+        public IActionResult YourOrders(int Id)
+        {
+            return View();
+        }
+
+
 
         public IActionResult Index()
         {

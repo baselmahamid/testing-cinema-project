@@ -67,11 +67,11 @@ namespace Cinema.Controllers
         [HttpGet]
         public IActionResult AddShow()
         {
-            _context.SaveChanges();
+          
             return View();
         }
 
-        [HttpPost]
+       [HttpPost]
         public IActionResult AddShow(MovieDetailsViewmodel vmodel,ShowTime moviee, MovieDetails movie)
         {
             moviee.DateAndTimeS = vmodel.DateAndTimeS;
@@ -102,12 +102,12 @@ namespace Cinema.Controllers
 
 
 
-        [HttpGet]
-        public IActionResult CheckBookSeat()
-        {
-            var getBookingTable = _context.BookingTable.ToList().OrderByDescending(a => a.DateToPresent);
-            return View(getBookingTable);
-        }
+        //[HttpGet]
+        //public IActionResult CheckBookSeat()
+        //{
+        //    var getBookingTable = _context.BookingTable.ToList().OrderByDescending(a => a.DateToPresent);
+        //    return View(getBookingTable);
+        //}
 
         //adding the admin action for admin page
 

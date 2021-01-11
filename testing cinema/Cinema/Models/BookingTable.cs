@@ -10,14 +10,12 @@ namespace Cinema.Models
     public class BookingTable
     {
         public int Id { get; set; }
-        public string seatno { get; set; }
+        public String seatno { get; set; }
         public string UserId { get; set; }
-        public DateTime DateToPresent { get; set; }
-        public int MovieDetailsId { get; set; }
-        public int Amount { get; set; }
-        [ForeignKey("MovieDetailsId")]
-    
-        public virtual MovieDetails MovieDetails { get; set; }
-        
+        public DateTime DateAndTimeS { get; set; }
+        public DateTime DateAndTimeE { get; set; }
+
+        public int CartId { get; set; }
+        public int ShowId { get; set; }
     }
 }

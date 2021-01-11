@@ -11,12 +11,15 @@ namespace Cinema.Models
     public class ShowTime
     {
        
-        
+      
         public int Id { get; set; }
         [Display(Name = "Movie")]
+
        
         public string Movie_Name { get; set; }
-        
+
+        [Key]
+        public int ShowId { get; set; }
         public string Movie_Details { get; set; }
 
 
@@ -29,12 +32,12 @@ namespace Cinema.Models
         public int Seat { get; set; }
         public DateTime DateAndTimeS { get; set; }
         public DateTime DateAndTimeE { get; set; }
-       
-        
+
+      
 
 
         //adding the category
-        
+
         public string category { get; set; }
 
       

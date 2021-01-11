@@ -15,11 +15,12 @@ namespace Cinema.Data
         {
         }
 
-        public DbSet<BookingTable> BookingTable { get; set; }
+        
+        public DbSet<BookingTable> Booking { get; set; }
         public DbSet<Cart> Cart { get; set; }
         public DbSet<MovieDetails> MovieDetails { get; set; }
         public DbSet<ShowTime> ShowTimes { get; set; }
         public DbSet<Cinema.Models.ViewModels.MovieDetailsViewmodel> MovieDetailsViewmodel { get; set; }
-       
+        public DbSet<Cinema.Models.ViewModels.BookNowViewModel> BookNowViewModel { get; set; }
     }
 }
