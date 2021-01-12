@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Cinema.Models.Cart>
+
+@{
+    ViewData["Title"] = "YourOrders";
+}
+
+<h1>YourOrders</h1>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.seatno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShowId)
+                </th>
+
+              
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seatno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowId)
+                </td>
+                <td>
+                    <a asp-controller="Home" asp-action="Editcart" asp-route-id="@item.Id">Edit</a>
+
+                </td>
+            </tr>
+              }
+
+
+
+                    <div>
+                        
+                        <a asp-action="Index">Back to List</a>
+                    </div>

@@ -7,7 +7,7 @@
 <h1>BookNow</h1>
 
 <a asp-action="" asp-controller="">Check to Cart</a>|
-<a asp-action="" asp-controller="">Your Order Details</a>
+<a asp-action="YourOrders" asp-controller="Home" asp-route-id="@Model.UserId">Your Order Details</a>
 <hr />
 <div class="row">
     <div class="col-md-4">

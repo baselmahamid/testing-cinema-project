@@ -20,19 +20,18 @@ namespace Cinema.Controllers
         
         int count = 1;
         bool flag = true;
-        private UserManager<ApplicationId> _userManager;
+        private UserManager<IdentityUser> _userManager;
         private ApplicationDbContext _context;
 
-        public HomeController(ApplicationDbContext context)
-        {
-            
-            _context = context;
-          //  _userManager = userManager;
-        }
 
-       
-       
-     
+        public HomeController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        {
+
+            _context = context;
+            _userManager = userManager;
+        }
+ 
+
 
         [HttpGet]
         public IActionResult BookNow(int Id)
@@ -45,8 +44,9 @@ namespace Cinema.Controllers
             vm.Movie_Name = item.Movie_Name;
             vm.Hall = item.Hall;
             vm.Seat = item.Seat;
-           
-            
+            vm.UserId = _userManager.GetUserId(HttpContext.User);
+
+
             return View(vm);
            
         }
@@ -54,11 +54,11 @@ namespace Cinema.Controllers
         [HttpPost]
         public IActionResult BookNow(BookNowViewModel vm )
         {
-            
+            var vs = _context.ShowTimes.Where(a => a.ShowId == vm.Id).FirstOrDefault();
             List<BookingTable> booking = new List<BookingTable>();
             List<Cart> carts = new List<Cart>();
             string seatno = vm.seatno.ToString();
-            int showId = vm.ShowId;
+            int showId = vs.ShowId;
             string[] seatnoarray = seatno.Split(',');
             count = seatnoarray.Length;
             
@@ -66,11 +66,13 @@ namespace Cinema.Controllers
             {
                 foreach(var item in seatnoarray)
                 {
-                    carts.Add(new Cart { ShowId = vm.ShowId,DateAndTimeE = vm.DateAndTimeE, DateAndTimeS = vm.DateAndTimeS, seatno = item });
-                
+                    carts.Add(new Cart { ShowId = showId,UserId=_userManager.GetUserId(HttpContext.User),DateAndTimeE = vs.DateAndTimeE, DateAndTimeS = vs.DateAndTimeS, seatno = item });
+                   
                 }
                 foreach(var item in carts)
                 {
+
+                    
                     _context.Cart.Add(item);
                     _context.SaveChanges();
 
@@ -83,6 +85,7 @@ namespace Cinema.Controllers
                 
                 TempData["sucess"] = "Pleas change Your seat number";
             }
+            
             return RedirectToAction("BookNow");
         }
 
@@ -113,15 +116,42 @@ namespace Cinema.Controllers
         }
 
 
-
-        public IActionResult YourOrders(int Id)
+        [HttpGet]
+        public IActionResult YourOrders(string Id)
         {
-            return View();
+            
+            var orders = _context.Cart.Where(a => a.UserId == Id).ToList();
+            
+
+            return View(orders);
         }
 
+        
+        public IActionResult Editcart(int id)
+        {
+            
+                var cartt = _context.Cart.Where(s => s.Id == id).FirstOrDefault();
+         //  var sh = _context.ShowTimes.Where(s=>s.)
 
+                return View(cartt);
 
-        public IActionResult Index()
+        }
+
+        [HttpPost]
+        public IActionResult Editcart( BookNowViewModel vmodel, Cart cartt)
+        {
+            
+            cartt.UserId = vmodel.UserId;
+            cartt.seatno = vmodel.seatno;
+            cartt.ShowId = vmodel.ShowId;
+            ViewBag.mov =vmodel.Movie_Name ;
+            _context.Cart.Update(cartt);
+            _context.SaveChanges();
+            return RedirectToAction("Editcart", "Home");
+
+        }
+
+            public IActionResult Index()
         {
             
             var getMovieList = _context.MovieDetails.ToList();

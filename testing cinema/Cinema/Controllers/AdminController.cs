@@ -102,13 +102,7 @@ namespace Cinema.Controllers
 
 
 
-        //[HttpGet]
-        //public IActionResult CheckBookSeat()
-        //{
-        //    var getBookingTable = _context.BookingTable.ToList().OrderByDescending(a => a.DateToPresent);
-        //    return View(getBookingTable);
-        //}
-
+      
         //adding the admin action for admin page
 
         [HttpGet]
