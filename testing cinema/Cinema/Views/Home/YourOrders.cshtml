@@ -16,10 +16,18 @@
                     @Html.DisplayNameFor(model => model.seatno)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.DateAndTimeS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateAndTimeE)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.ShowId)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cost)
+                </th>
 
-              
                 <th></th>
             </tr>
         </thead>
@@ -31,19 +39,38 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.seatno)
                 </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAndTimeS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAndTimeE)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ShowId)
                 </td>
                 <td>
-                    <a asp-controller="Home" asp-action="Editcart" asp-route-id="@item.Id">Edit</a>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    <a asp-controller="Home" asp-action="DeleteCart" asp-route-id="@item.Id">DeleteCart</a>
 
                 </td>
             </tr>
-              }
+            }
 
 
+</div>
+</br>
+            </br>
+<b>Total : @ViewBag.tocost</b>
 
-                    <div>
-                        
-                        <a asp-action="Index">Back to List</a>
-                    </div>
+<div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+    <script>paypal.Buttons().render('body');</script>
+</div>
+<div>
+
+    <a asp-action="Index">Back to List</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

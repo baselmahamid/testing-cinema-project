@@ -11,47 +11,62 @@
 
     @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
     {
+    <p>
         <td>
-            <img src="@item.MoivePicture" width="300" height="300" asp-append-version="true" />
+            <img src="@item.MoivePicture" align="left" width="300" height="300" asp-append-version="true" />
         </td>
-        <p>
-            Movie Name :
+        <br />
+        <div>
+            <b>
+                Movie Name :
+            </b>
             <td>
                 @Html.DisplayFor(modelItem => item.Movie_Name)
             </td>
-        </p>
 
-        <p>
-            Movie Desc :
+
+            <br />
+            <b>
+                Movie Desc :
+            </b>
             <td>
                 @Html.DisplayFor(modelItem => item.Movie_Details)
             </td>
-        </p>
-        <p>
-            Movie Category :
+
+            <br />
+            <b>
+                Movie Category :
+            </b>
             <td>
                 @Html.DisplayFor(modelItem => item.category)
             </td>
-        </p>
-        <p>
-            Age :
+
+            <br />
+            <b>
+                Age :
+            </b>
             <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
-        </p>
-        <p>
-            Rating :
+
+            <br />
+            <b> Rating : </b>
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
-        </p>
+        </div>
+</p>
         <br /><br />
         break;
     }
 
+    <br /><br /><br /><br /><br />
     <h3>List of shows </h3>
 
 </div>
+<p></p>
+
+
 <tbody>
 
     <table class="table">
@@ -71,42 +86,43 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Seat)
                 </th>
-                @*<th>
-                    @Html.DisplayNameFor(model => model.Prices)
-                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Cost)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            
-                @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Hall)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateAndTimeS)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateAndTimeE)
-                        </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Seat)
-                        </td>
+            @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hall)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateAndTimeS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateAndTimeE)
+                    </td>
 
-                        <td>
-                            <a asp-controller="Home" asp-action="BookNow" asp-route-id="@item.ShowId">Booking  Now</a>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Seat)
+                    </td>
+                    <td id="cost">
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                    <td>
+                        <a asp-controller="Home" asp-action="BookNow" asp-route-id="@item.ShowId">Booking  Now</a>
 
-                        </td>
-                    </tr>
-                }
-            
+                    </td>
+                </tr>
+            }
+
         </tbody>
     </table>
 </tbody>
-
 
 
 <div>

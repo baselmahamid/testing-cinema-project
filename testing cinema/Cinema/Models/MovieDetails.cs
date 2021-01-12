@@ -14,6 +14,8 @@ namespace Cinema.Models
         [Display(Name = "Movie")]
         
         public string Movie_Name { get; set; }
+
+        [Display(Name = "Details")]
         public string Movie_Details { get; set; }
 
        
@@ -21,11 +23,12 @@ namespace Cinema.Models
         [Display(Name = "Movie Poster")]
         public  string MoivePicture { get; set; }
 
-        public virtual ICollection<BookingTable> booking { get; set; }
+        [Display(Name = "Shows Number")]
+        public int Cshow { get; set; }
 
-       
 
         //adding the category
+        [Display(Name = "Category")]
         public string category { get; set; }
         
        

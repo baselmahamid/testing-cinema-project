@@ -16,7 +16,7 @@ namespace Cinema.Data
         }
 
         
-        public DbSet<BookingTable> Booking { get; set; }
+        
         public DbSet<Cart> Cart { get; set; }
         public DbSet<MovieDetails> MovieDetails { get; set; }
         public DbSet<ShowTime> ShowTimes { get; set; }

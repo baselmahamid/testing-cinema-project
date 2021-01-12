@@ -76,7 +76,7 @@ namespace Cinema.Controllers
         {
             moviee.DateAndTimeS = vmodel.DateAndTimeS;
             moviee.DateAndTimeE = vmodel.DateAndTimeE;
-          
+            moviee.Cost = vmodel.Cost;
             moviee.Hall = vmodel.Hall;
             moviee.Seat = vmodel.Seat;
           //  moviee.Prices = vmodel.Prices;

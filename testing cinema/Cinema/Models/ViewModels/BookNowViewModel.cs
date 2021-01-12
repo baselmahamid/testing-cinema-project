@@ -11,6 +11,7 @@ namespace Cinema.Models.ViewModels
         public int Id { get; set; }
         public string Movie_Name { get; set; }
         public string Hall { get; set; }
+        public int Cost { get; set; }
         public String seatno { get; set; }
         public string UserId { get; set; }
         public DateTime DateAndTimeS { get; set; }

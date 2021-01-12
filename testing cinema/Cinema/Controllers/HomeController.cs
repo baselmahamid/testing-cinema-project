@@ -55,7 +55,7 @@ namespace Cinema.Controllers
         public IActionResult BookNow(BookNowViewModel vm )
         {
             var vs = _context.ShowTimes.Where(a => a.ShowId == vm.Id).FirstOrDefault();
-            List<BookingTable> booking = new List<BookingTable>();
+           
             List<Cart> carts = new List<Cart>();
             string seatno = vm.seatno.ToString();
             int showId = vs.ShowId;
@@ -66,7 +66,7 @@ namespace Cinema.Controllers
             {
                 foreach(var item in seatnoarray)
                 {
-                    carts.Add(new Cart { ShowId = showId,UserId=_userManager.GetUserId(HttpContext.User),DateAndTimeE = vs.DateAndTimeE, DateAndTimeS = vs.DateAndTimeS, seatno = item });
+                    carts.Add(new Cart { Cost=vs.Cost,ShowId = showId,UserId=_userManager.GetUserId(HttpContext.User),DateAndTimeE = vs.DateAndTimeE, DateAndTimeS = vs.DateAndTimeS, seatno = item });
                    
                 }
                 foreach(var item in carts)
@@ -121,40 +121,58 @@ namespace Cinema.Controllers
         {
             
             var orders = _context.Cart.Where(a => a.UserId == Id).ToList();
-            
+            int total = 0;
+            foreach (var item in orders)
+            {
+                total += item.Cost;
+            }
+            ViewBag.tocost = total;
 
             return View(orders);
         }
 
         
-        public IActionResult Editcart(int id)
+        public IActionResult DeleteCart(int id)
         {
             
                 var cartt = _context.Cart.Where(s => s.Id == id).FirstOrDefault();
-         //  var sh = _context.ShowTimes.Where(s=>s.)
+        
 
                 return View(cartt);
 
         }
 
         [HttpPost]
-        public IActionResult Editcart( BookNowViewModel vmodel, Cart cartt)
+        public IActionResult DeleteCart(BookNowViewModel vm,Cart cartt)
         {
-            
-            cartt.UserId = vmodel.UserId;
-            cartt.seatno = vmodel.seatno;
-            cartt.ShowId = vmodel.ShowId;
-            ViewBag.mov =vmodel.Movie_Name ;
-            _context.Cart.Update(cartt);
+            cartt.DateAndTimeE = vm.DateAndTimeE;
+            cartt.DateAndTimeS = vm.DateAndTimeS;
+            cartt.seatno = vm.seatno;
+            cartt.ShowId = vm.ShowId;
+            cartt.UserId = vm.UserId;
+            cartt.Id = vm.Id;
+            cartt.Cost = vm.Cost;
+            _context.Cart.Remove(cartt);
             _context.SaveChanges();
-            return RedirectToAction("Editcart", "Home");
+
+
+             return RedirectToAction("Index", "Home");
 
         }
 
-            public IActionResult Index()
+
+        public IActionResult Index()
         {
             
             var getMovieList = _context.MovieDetails.ToList();
+            foreach(var item in getMovieList)
+            {
+                item.Cshow = _context.ShowTimes.Where(a=>a.Id==item.Id && a.DateAndTimeS>DateTime.Now).Count();
+                _context.MovieDetails.Update(item);
+            }
+            
+            _context.SaveChanges();
+            ViewBag.us = _userManager.GetUserId(HttpContext.User);
 
             return View(getMovieList);
         }
@@ -162,7 +180,7 @@ namespace Cinema.Controllers
         
 
 
-        public IActionResult Privacy()
+        public IActionResult Contact()
         {
             return View();
         }
@@ -178,7 +196,7 @@ namespace Cinema.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         { 
-            var model = _context.ShowTimes.Where(p => p.Id == id );
+            var model = _context.ShowTimes.Where(p => p.Id == id && p.DateAndTimeS > DateTime.Now );
             ViewBag.id = id;
             
 

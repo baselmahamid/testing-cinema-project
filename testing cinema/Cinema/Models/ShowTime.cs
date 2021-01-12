@@ -27,10 +27,13 @@ namespace Cinema.Models
        
         public string MoivePicture { get; set; }
        
+        public int Cost { get; set; }
         public string Hall { get; set; }
         
         public int Seat { get; set; }
+        [Display(Name = "Start show")]
         public DateTime DateAndTimeS { get; set; }
+        [Display(Name = "End show")]
         public DateTime DateAndTimeE { get; set; }
 
       
