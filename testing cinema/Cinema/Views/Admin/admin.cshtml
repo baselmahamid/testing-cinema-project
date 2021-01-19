@@ -3,53 +3,114 @@
 @{
     ViewData["Title"] = "admin";
 }
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
 
-<h1>Welcome Admin</h1>
-
-<p>
-    <a asp-action="Create">Add New Movie</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Movie_Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.category)
-            </th>
-           
-            
-            <th>
-
-                @Html.DisplayNameFor(model => model.MoivePicture)
-            </th>
-            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Movie_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.category)
-                </td>
-              
-                <td>
-                    <img src="@item.MoivePicture" width="100" height="100" asp-append-version="true" />
-                </td>
-               
-                <td>
-                    <a asp-action="AddShow" asp-route-id="@item.Id">AddShow</a>|
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        #table {
+            font-family: Georgia, Times New Roman, serif;
+            border-collapse: collapse;
+            width: 100%;
         }
-    </tbody>
-</table>
+
+            #table td, #table th {
+                border: 1px black solid #ddd;
+                padding: 8px;
+                color: white;
+                font-size: 20px;
+            }
+
+
+
+            #table tr:hover {
+                background-color: #ccc0c0;
+                #background: transparent;
+            }
+
+            #table th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: dimgray;
+                background: transparent;
+                font-size: 30px;
+            }
+
+        
+
+        .head h1 {
+            font-size: 30px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            font-family: "Playfair Display", serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #989797;
+        }
+
+        body {
+            background-image: url('https://wallpaperaccess.com/full/1561985.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <h1>
+            Welcome Admin
+        </h1>
+    </div>
+
+    <p>
+        <a class="add" asp-action="Create"><i class="fas fa-plus"></i> Add Movie </a>
+    </p>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Movie_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category)
+                </th>
+
+
+                <th>
+
+                    @Html.DisplayNameFor(model => model.MoivePicture)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Movie_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category)
+                    </td>
+
+                    <td>
+                        <img src="@item.MoivePicture" width="100" height="100" asp-append-version="true" />
+                    </td>
+
+                    <td>
+                        <a asp-action="AddShow" asp-route-id="@item.Id"><i class="fas fa-plus"></i> Add Show</a>|
+                        <a asp-action="Edit" asp-route-id="@item.Id"><i class='fas fa-edit' style='font-size:24px'></i> Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class='fas fa-eraser' style='font-size:24px'></i> Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

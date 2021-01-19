@@ -3,10 +3,45 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<head>
+    <style>
 
-<h1>Edit</h1>
+        body {
+            background-image: url('https://wallpaperaccess.com/full/1561985.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
 
-<h4>MovieDetails</h4>
+        /* this class for the titles*/
+        .control-label {
+            font-family: Georgia, Times New Roman, serif;
+            color: #f1b906;
+            font-size: 20px;
+        }
+
+        .header {
+            font-family: Georgia, Times New Roman, serif;
+            font-size: 35px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #989797;
+        }
+
+        .back {
+            color: #fff;
+            font-size: 20px;
+        }
+
+
+
+    </style>
+</head>
+
+
+<h1 class="header">Edit Movie</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -53,7 +88,7 @@
 </div>
 
 <div>
-    <a asp-controller="Admin" asp-action="admin">Back to List</a>
+    <a class="back" asp-controller="Admin" asp-action="admin">Back to List</a>
 </div>
 
 @section Scripts {

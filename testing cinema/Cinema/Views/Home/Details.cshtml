@@ -5,71 +5,138 @@
 @{
     ViewData["Title"] = "Details";
 }
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+        #table {
+            font-family: Georgia, Times New Roman, serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-<h1>Shows Details</h1>
-<div>
-
-    @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
-    {
-    <p>
-        <td>
-            <img src="@item.MoivePicture" align="left" width="300" height="300" asp-append-version="true" />
-        </td>
-        <br />
-        <div>
-            <b>
-                Movie Name :
-            </b>
-            <td>
-                @Html.DisplayFor(modelItem => item.Movie_Name)
-            </td>
+            #table td, #table th {
+                border: 1px black solid #ddd;
+                padding: 8px;
+                color: white;
+                font-size: 20px;
+            }
 
 
-            <br />
-            <b>
-                Movie Desc :
-            </b>
-            <td>
-                @Html.DisplayFor(modelItem => item.Movie_Details)
-            </td>
 
-            <br />
-            <b>
-                Movie Category :
-            </b>
-            <td>
-                @Html.DisplayFor(modelItem => item.category)
-            </td>
+            #table tr:hover {
+                background-color: #ccc0c0;
+                #background: transparent;
+            }
 
-            <br />
-            <b>
-                Age :
-            </b>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
+            #table th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: dimgray;
+                background: transparent;
+                font-size: 30px;
+            }
 
-            <br />
-            <b> Rating : </b>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-        </div>
-</p>
-        <br /><br />
-        break;
-    }
+        .det {
+            position: absolute;
+            left: 530px;
+            top: 200px;
+            color: white;
+        }
 
-    <br /><br /><br /><br /><br />
-    <h3>List of shows </h3>
+        .t {
+            font-family: Georgia, Times New Roman, serif;
+            color: #f5c20d;
+            font-size: 20px;
+        }
 
-</div>
-<p></p>
+        .head h1 {
+            font-family: Georgia, Times New Roman, serif;
+            font-size: 30px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #989797;
+        }
+
+        
+        body {
+            background-image: url('https://wallpaperaccess.com/full/1561985.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1 >Show Time & Details</h1>
+    </div>
+    <div>
+        @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
+        {
+            <p>
+                <td>
+                    <img src="@item.MoivePicture" align="left" width="250" height="250" asp-append-version="true" />
+                </td>
+                <br />
+                <div class="det">
+                    <b class="t">
+                        Movie Name :
+                    </b>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Movie_Name)
+                    </td>
 
 
-<tbody>
+                    <br />
+                    <b class="t">
+                        Movie Desc :
+                    </b>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Movie_Details)
+                    </td>
 
-    <table class="table">
+                    <br />
+                    <b class="t">
+                        Movie Category :
+                    </b>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category)
+                    </td>
+
+                    <br />
+                    <b class="t">
+                        Age :
+                    </b>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+
+                    <br />
+                    <b class="t"> Rating : </b>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                </div>
+            </p>
+            <br /><br />
+            break;
+        }
+
+        <br /><br /><br /><br /><br />
+
+
+    </div>
+    <p></p>
+
+
+
+
+    <table id="table">
         <thead>
             <tr>
                 <th>
@@ -122,9 +189,10 @@
 
         </tbody>
     </table>
-</tbody>
 
 
-<div>
-    <a asp-controller="Home" asp-action="Index">Back to List</a>
-</div>
+
+    <div>
+        <a asp-controller="Home" asp-action="Index">Back to List</a>
+    </div>
+</body>

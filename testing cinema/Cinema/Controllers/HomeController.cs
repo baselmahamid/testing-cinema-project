@@ -77,14 +77,16 @@ namespace Cinema.Controllers
                     _context.SaveChanges();
 
                 }
-               
-                TempData["sucess"] = "seat no booked , check to cart";
+
+                
+                TempData["success"] = "Your Seat added to the cart";
             }
             else
             {
                 
-                TempData["sucess"] = "Pleas change Your seat number";
+                TempData["success"] = "Please Select another seat, This number occupied";
             }
+            ViewBag.id = showId;
             
             return RedirectToAction("BookNow");
         }

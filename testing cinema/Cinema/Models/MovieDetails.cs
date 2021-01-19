@@ -12,28 +12,31 @@ namespace Cinema.Models
     {
         public int Id { get; set; }
         [Display(Name = "Movie")]
-        
+        [Required]
         public string Movie_Name { get; set; }
-
+        
+        [Required]
         [Display(Name = "Details")]
         public string Movie_Details { get; set; }
 
-       
 
+        [Required]
         [Display(Name = "Movie Poster")]
-        public  string MoivePicture { get; set; }
+        public string MoivePicture { get; set; }
 
+        
         [Display(Name = "Shows Number")]
         public int Cshow { get; set; }
 
-
+        [Required]
         //adding the category
         [Display(Name = "Category")]
         public string category { get; set; }
-        
-       
+
+        [Required]
         public string Age { get; set; }
-       
+
+        [Required]
         public string Rating { get; set; }
 
         internal static object where(Func<object, object> p)
@@ -50,5 +53,7 @@ namespace Cinema.Models
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

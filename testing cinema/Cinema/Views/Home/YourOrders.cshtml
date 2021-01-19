@@ -1,76 +1,237 @@
-﻿@model IEnumerable<Cinema.Models.Cart>
+@model IEnumerable<Cinema.Models.Cart>
 
 @{
     ViewData["Title"] = "YourOrders";
 }
 
-<h1>YourOrders</h1>
 
-<div>
-    <h4>Cart</h4>
-    <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.seatno)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateAndTimeS)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateAndTimeE)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ShowId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cost)
-                </th>
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+<head>
+    <style>
 
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.seatno)
-                </td>
+        #table {
+            font-family: Georgia, Times New Roman, serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateAndTimeS)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateAndTimeE)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShowId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cost)
-                </td>
-                <td>
-                    <a asp-controller="Home" asp-action="DeleteCart" asp-route-id="@item.Id">DeleteCart</a>
-
-                </td>
-            </tr>
+            #table td, #table th {
+                border: 1px black solid #ddd;
+                padding: 8px;
+                color: white;
+                font-size: 20px;
             }
 
 
-</div>
-</br>
-            </br>
-<b>Total : @ViewBag.tocost</b>
 
-<div>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
-    <script>paypal.Buttons().render('body');</script>
-</div>
-<div>
+            #table tr:hover {
+                background-color: #ccc0c0;
+                #background: transparent;
+            }
 
-    <a asp-action="Index">Back to List</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+            #table th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: dimgray;
+                background: transparent;
+                font-size: 30px;
+            }
+
+/*            confirm button
+*/
+        .button {
+            background-color: #555555;
+            border: 1px solid transparent;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 85%;
+            left: 80%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(50%, -60%);
+        }
+
+        .center1 {
+            font-family: Georgia, Times New Roman, serif;
+            color: #f1b906;
+            font-size: 40px;
+        }
+
+        .homepage {
+            margin: 0;
+            position: absolute;
+            top: 85%;
+            left: 2%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-1%, -60%);
+            color: white;
+        }
+
+        .homepageb {
+            background-color: #1b6ec2;
+            border: 1px solid transparent;
+            color: #fff;
+            padding: .375rem .75rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 2rem;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: .25rem;
+            border-color: #1861ac;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        
+
+        .header {
+            font-family: Georgia, Times New Roman, serif;
+            font-size: 35px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #989797;
+        }
+
+        .title {
+            font-family: Georgia, Times New Roman, serif;
+            color: #f1b906;
+            font-size: 37px;
+        }
+
+
+        body {
+            background-image: url('https://wallpaperaccess.com/full/1561985.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+		#paypal-button-container {
+			width: 250px;
+		}
+	
+    </style>
+
+</head>
+
+<h1 class="header">Cart</h1>
+
+<body>
+    <div>
+        <h4 class="title">Tickets Details</h4>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.seatno)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateAndTimeS)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateAndTimeE)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ShowId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cost)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.seatno)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAndTimeS)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAndTimeE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ShowId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            <a asp-controller="Home" asp-action="DeleteCart" asp-route-id="@item.Id"><i class='fas fa-eraser' style='font-size:24px'></i> DeleteCart</a>
+
+                        </td>
+                    </tr>
+                }
+
+        </table>
+    </div>
+    </br >
+    </br >
+    <div class="center1">
+        <b>Total Price : @ViewBag.tocost</b>
+    </div>
+
+
+    
+        <div class="center">
+            <button onclick="confirmation()" class="button">Confirm</button>
+        </div>
+
+
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            function confirmation() {
+                swal({
+                    title: "Done",
+                    text: "Thank You",
+                    icon: "success",
+                    timer: "3500",
+                    button: ["no", "yes"]
+                })
+            }
+        </script>
+
+    <div class="center3">
+        <div id="paypal-button-container"></div>
+            <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+            <script>paypal.Buttons().render('#paypal-button-container');</script>
+        </div>
+
+   
+
+
+    <div class="homepage">
+
+        <a class="homepageb" asp-action="Index">Home Page</a>
+
+    </div>
+</body>

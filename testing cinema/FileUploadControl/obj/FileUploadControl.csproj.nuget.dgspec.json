@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {}
+    "D:\\Cinema vs project\\semi-final\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
+    "D:\\Cinema vs project\\semi-final\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
+        "projectUniqueName": "D:\\Cinema vs project\\semi-final\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
         "projectName": "FileUploadControl",
-        "projectPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
-        "packagesPath": "C:\\Users\\abu3losh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abu3losh\\Desktop\\testing-cinema-project\\testing cinema\\FileUploadControl\\obj\\",
+        "projectPath": "D:\\Cinema vs project\\semi-final\\testing-cinema-project\\testing cinema\\FileUploadControl\\FileUploadControl.csproj",
+        "packagesPath": "C:\\Users\\Basel\\.nuget\\packages\\",
+        "outputPath": "D:\\Cinema vs project\\semi-final\\testing-cinema-project\\testing cinema\\FileUploadControl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\abu3losh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Basel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Hosting": {
               "target": "Package",
@@ -65,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -59,7 +59,7 @@ namespace Cinema.Controllers
             _upload.Uploadfilemultiple(files);
             _context.MovieDetails.Add(movie);
             _context.SaveChanges();
-            TempData["Sucess"] = "Save Your Movie";
+            TempData["Sucess"] = "Movie added to the list";
             return RedirectToAction("Create", "Admin");
 
         }
@@ -95,7 +95,7 @@ namespace Cinema.Controllers
             
             _context.ShowTimes.Add(moviee);
             _context.SaveChanges();
-            TempData["Sucess"] = "Save Your Movie";
+            TempData["Sucess"] = "Show Time added to list";
             return RedirectToAction("admin", "Admin");
 
         }

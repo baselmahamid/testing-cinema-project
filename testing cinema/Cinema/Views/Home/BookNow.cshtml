@@ -4,68 +4,170 @@
     ViewData["Title"] = "BookNow";
 }
 
-<h1>BookNow</h1>
 
 
-<a asp-action="YourOrders" asp-controller="Home" asp-route-id="@Model.UserId">Your Order Details</a>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="BookNow">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<head>
+    <style>
 
-            <div class="form-group">
-                <h5>
-                    <label asp-for="Movie_Name" class="control-label"></label> </h5>
-                        <h6> @Model.Movie_Name</h6>
-                        <span asp-validation-for="Movie_Name" class="text-danger"></span>
-</div>
-            <div class="form-group">
-                <h5>
-                    <label asp-for="Hall" class="control-label"></label> </h5>
-                        <h6> @Model.Hall</h6>
-                        <span asp-validation-for="Hall" class="text-danger"></span>
-</div>
-            <div class="form-group">
-                <h5>
-                    <label asp-for="DateAndTimeS" class="control-label"></label> </h5>
-                        <h6> @Model.DateAndTimeS</h6>
-                        <span asp-validation-for="DateAndTimeS" class="text-danger"></span>
-</div>
-            <div class="form-group">
-                <h5>
-                    <label asp-for="DateAndTimeE" class="control-label"></label> </h5>
-                        <h6> @Model.DateAndTimeE</h6>
-                        <span asp-validation-for="DateAndTimeE" class="text-danger"></span>
-</div>
-            <div class="form-group">
-                <h5>
-                    <label asp-for="seatno" class="control-label"></label> </h5>
-                <select name="seatno">
-                    @for (int i=1; i<=Model.Seat; i++)
-                    {
-                        
-                        
-                        <option>@i</option>
-                       
+        body {
+            background-image: url('https://wallpaperaccess.com/full/1561985.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* this class for the titles*/
+        .control-label {
+            font-family: Georgia, Times New Roman, serif;
+            color: #f1b906;
+            font-size: 20px;
+        }
+
+        /* this class for the details*/
+        .det {
+            font-family: Georgia, Times New Roman, serif;
+            color: white;
+        }
+
+        .header {
+            font-family: Georgia, Times New Roman, serif; 
+            font-size: 35px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #989797;
+        }
+
+        .cart {
+            background-color: #1b6ec2;
+            border: 1px solid transparent;
+            color: #fff;
+            padding: .375rem .75rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: .25rem;
+            border-color: #1861ac;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 78%;
+            left: 17%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(50%, -60%);
+        }
+
+        .previous {
+            background-color: #1b6ec2;
+            border: 1px solid transparent;
+            color: #fff;
+            padding: .375rem .75rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: .25rem;
+            border-color: #1861ac;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+
+
+        .center1 {
+            margin: 0;
+            position: absolute;
+            top: 85%;
+            left: 2%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-1%, -60%);
+            color: white;
+        }
+        
+    </style>
+</head>
+
+<h1 class="header">Seat Book</h1>
+
+<body>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="BookNow">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <h5>
+                        <label asp-for="Movie_Name" class="control-label"></label>
+                    </h5>
+                    <h6 class="det"> @Model.Movie_Name</h6>
+                    <span asp-validation-for="Movie_Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h5>
+                        <label asp-for="Hall" class="control-label"></label>
+                    </h5>
+                    <h6 class="det"> @Model.Hall</h6>
+                    <span asp-validation-for="Hall" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h5>
+                        <label asp-for="DateAndTimeS" class="control-label"></label>
+                    </h5>
+                    <h6 class="det"> @Model.DateAndTimeS</h6>
+                    <span asp-validation-for="DateAndTimeS" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h5>
+                        <label asp-for="DateAndTimeE" class="control-label"></label>
+                    </h5>
+                    <h6 class="det"> @Model.DateAndTimeE</h6>
+                    <span asp-validation-for="DateAndTimeE" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <h5>
+                        <label asp-for="seatno" class="control-label"></label>
+                    </h5>
+                    <select name="seatno">
+                        @for (int i = 1; i <= Model.Seat; i++)
+                        {
+
+
+                            <option>@i</option>
+
                         }
 
-                </select>
-                        
-</div>
-            <div class="form-group">
-                <input type="submit" value="Add To Cart" class="btn btn-primary" />
-            </div>
-        </form>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Add To Cart" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    @TempData["sucess"]<br />
 
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <div class="center1">
+        <a class="data">@TempData["success"]</a>
+        <br />
+        <a class="previous" asp-action="Details" asp-route-id="ViewBag.id">Previous</a>
+    </div>
+    <div class="center">
+        <a class="cart" asp-action="YourOrders" asp-controller="Home" asp-route-id="@Model.UserId">Your Order Details</a>
+    </div>
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
