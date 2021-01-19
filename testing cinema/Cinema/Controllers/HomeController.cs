@@ -165,21 +165,85 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            
+            string h1;
             var getMovieList = _context.MovieDetails.ToList();
             foreach(var item in getMovieList)
             {
                 item.Cshow = _context.ShowTimes.Where(a=>a.Id==item.Id && a.DateAndTimeS>DateTime.Now).Count();
                 _context.MovieDetails.Update(item);
             }
+
             
             _context.SaveChanges();
             ViewBag.us = _userManager.GetUserId(HttpContext.User);
+            
+            if(_userManager.GetUserId(HttpContext.User) == "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("admin", "Admin");
+            }
 
-            return View(getMovieList);
+
+
+            return View("Index", getMovieList);
+
+
         }
 
-        
+        public IActionResult Index1()
+        {
+            string h1;
+            var getMovieList = _context.MovieDetails.ToList();
+            foreach (var item in getMovieList)
+            {
+                item.Cshow = _context.ShowTimes.Where(a => a.Id == item.Id && a.DateAndTimeS > DateTime.Now).Count();
+                _context.MovieDetails.Update(item);
+            }
+            _context.SaveChanges();
+            ViewBag.us = _userManager.GetUserId(HttpContext.User);
+
+            h1 = Request.Form["h1"];
+            switch (h1)
+            {
+                case "1":
+                    var s = from item in getMovieList
+                            where item.category == "action"
+                            select item;
+                    return View("Index", s);
+
+                case "2":
+                    var s1 = from item in getMovieList
+                            where item.category == "drama"
+                            select item;
+                    return View("Index", s1);
+                case "3":
+                    var s2 = from item in getMovieList
+                             where item.category == "comedy"
+                             select item;
+                    return View("Index", s2);
+                case "4":
+                    var s3 = from item in getMovieList
+                             where item.category == "kids"
+                             select item;
+                    return View("Index", s3);
+                case "5":
+                    var s4 = from item in getMovieList
+                             where item.category == "romance"
+                             select item;
+                    return View("Index", s4);
+                case "6":
+                    var s5 = getMovieList.OrderByDescending(a => a.Rating);
+                    return View("Index", s5);
+
+                case "7":
+                    var s6 = getMovieList.OrderBy(a => a.Rating);
+                    return View("Index", s6);
+
+                default:
+                    return View("Index",getMovieList);
+
+            }
+
+        }
 
 
         public IActionResult Contact()
@@ -204,6 +268,33 @@ namespace Cinema.Controllers
 
             return View(model);
         
+        }
+        public IActionResult Ordered(int id)
+        {
+            string h;
+            ViewBag.id = id;
+
+            var model = _context.ShowTimes.Where(p => p.Id == id && p.DateAndTimeS > DateTime.Now);
+
+
+            h = Request.Form["h"];
+            switch (h)
+            {
+                case "1":
+                    var s = model.OrderByDescending(a => a.Cost);
+                    return View("Details", s);
+
+                case "2":
+                    var s1 = model.OrderBy(a => a.Cost);
+                    return View("Details", s1);
+
+                default:
+                    return View("Details", model);
+
+            }
+
+
+
         }
 
 

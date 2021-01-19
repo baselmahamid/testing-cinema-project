@@ -8,6 +8,7 @@ using Cinema.Models;
 using Cinema.Models.ViewModels;
 using FileUploadControl;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,16 +18,17 @@ namespace Cinema.Controllers
     {
         private ApplicationDbContext _context;
         private UploadInterface _upload;
-        
-        
+        private UserManager<IdentityUser> _userManager;
 
 
-        public AdminController(ApplicationDbContext context, UploadInterface upload)
+
+        public AdminController(ApplicationDbContext context, UploadInterface upload, UserManager<IdentityUser> userManager)
         {
             
             _upload = upload;
             if(_context == null)
                 _context = context;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -39,9 +41,16 @@ namespace Cinema.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
-        }
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
 
+            }
+        }
         [HttpPost]
         public IActionResult Create(IList<IFormFile> files, MovieDetailsViewmodel vmodel, MovieDetails movie)
         {
@@ -60,15 +69,27 @@ namespace Cinema.Controllers
             _context.MovieDetails.Add(movie);
             _context.SaveChanges();
             TempData["Sucess"] = "Movie added to the list";
-            return RedirectToAction("Create", "Admin");
-
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Create", "Admin");
+            }
         }
 
         [HttpGet]
         public IActionResult AddShow()
         {
-          
-            return View();
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
        [HttpPost]
@@ -96,31 +117,49 @@ namespace Cinema.Controllers
             _context.ShowTimes.Add(moviee);
             _context.SaveChanges();
             TempData["Sucess"] = "Show Time added to list";
-            return RedirectToAction("admin", "Admin");
-
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("admin", "Admin");
+            }
         }
 
 
 
-      
+
         //adding the admin action for admin page
 
         [HttpGet]
         public IActionResult admin()
         {
             var getMovieList = _context.MovieDetails.ToList();
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
 
-            return View(getMovieList);
+                return View(getMovieList);
+            }
         }
 
         public IActionResult Edit(int id)
         {
 
             var movie = _context.MovieDetails.Where(s => s.Id == id).FirstOrDefault();
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
 
-            
-            return View(movie);
-
+                return View(movie);
+            }
         }
         [HttpPost]
         public IActionResult Edit(IList<IFormFile> files, MovieDetailsViewmodel vmodel, MovieDetails movie)
@@ -147,7 +186,15 @@ namespace Cinema.Controllers
 
             _context.SaveChanges();
             TempData["Sucess"] = "Save Your Movie";
-            return RedirectToAction("Edit", "Admin");
+            if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+
+                return RedirectToAction("Edit", "Admin");
+            }
         }
 
         public IActionResult Delete(int id)

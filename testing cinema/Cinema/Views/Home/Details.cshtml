@@ -73,7 +73,7 @@
 </head>
 <body>
     <div class="head">
-        <h1 >Show Time & Details</h1>
+        <h1>Show Time & Details</h1>
     </div>
     <div>
         @foreach (var item in Model.Where(m => m.Id == ViewBag.id))
@@ -135,6 +135,18 @@
 
 
 
+    @using (Html.BeginForm("Ordered", "Home", new { id = ViewBag.id }, FormMethod.Post))
+    {
+
+
+        <select name="h">
+
+            <option value="1">Higher</option>
+            <option value="2">Lower</option>
+        </select>
+
+        <input type="submit" value="sort">
+    }
 
     <table id="table">
         <thead>
