@@ -1,0 +1,139 @@
+﻿@model Cinema.Models.MovieDetails
+
+@{
+    ViewData["Title"] = "Details1";
+}
+
+
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+
+
+
+        .det {
+            position: absolute;
+            left: 530px;
+            top: 200px;
+            color: white;
+        }
+
+        .t {
+            font-family: Georgia, Times New Roman, serif;
+            color: #f5c20d;
+            font-size: 20px;
+        }
+
+        .head h1 {
+            font-family: Georgia, Times New Roman, serif;
+            font-size: 30px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #989797;
+        }
+
+
+        body {
+            background-image: url('https://wallpaperaccess.com/full/1561985.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .previous {
+            background-color: #1b6ec2;
+            border: 1px solid transparent;
+            color: #fff;
+            padding: .375rem .75rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: .25rem;
+            border-color: #1861ac;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+
+
+        .center1 {
+            margin: 0;
+            position: absolute;
+            top: 85%;
+            left: 2%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-1%, -60%);
+            color: white;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="head">
+        <h1>Show Time & Details</h1>
+    </div>
+    <div>
+
+        <p>
+            <td>
+                <img src="@Model.MoivePicture" align="left" width="250" height="250" asp-append-version="true" />
+            </td>
+            <br />
+            <div class="det">
+                <b class="t">
+                    Movie Name :
+                </b>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Movie_Name)
+                </td>
+
+
+                <br />
+                <b class="t">
+                    Movie Desc :
+                </b>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Movie_Details)
+                </td>
+
+                <br />
+                <b class="t">
+                    Movie Category :
+                </b>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.category)
+                </td>
+
+                <br />
+                <b class="t">
+                    Age :
+                </b>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Age)
+                </td>
+
+                <br />
+                <b class="t"> Rating : </b>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Rating)
+                </td>
+            </div>
+        </p>
+        <br /><br />
+
+        <div class="center1">
+            <br />
+            <a class="previous" asp-action="Index" >Previous</a>
+        </div>
+
+</body>

@@ -40,4 +40,3 @@ D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\FileUpload
 D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.csproj.CoreCompileInputs.cache
 D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.dll
 D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.pdb
-C:\Users\abu3losh\Desktop\testing-cinema-project\testing cinema\FileUploadControl\obj\Debug\netcoreapp3.1\FileUploadControl.csprojAssemblyReference.cache

@@ -136,6 +136,13 @@ namespace Cinema.Controllers
         public IActionResult admin()
         {
             var getMovieList = _context.MovieDetails.ToList();
+
+            foreach (var item in getMovieList)
+            {
+                item.Cshow = _context.ShowTimes.Where(a => a.Id == item.Id ).Count();
+                _context.MovieDetails.Update(item);
+            }
+
             if (_userManager.GetUserId(HttpContext.User) != "cbc75238-1546-43be-a8f6-2689265dcc42")
             {
                 return RedirectToAction("Index", "Home");

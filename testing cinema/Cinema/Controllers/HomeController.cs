@@ -31,7 +31,7 @@ namespace Cinema.Controllers
             _userManager = userManager;
         }
  
-
+        
 
         [HttpGet]
         public IActionResult BookNow(int Id)
@@ -45,7 +45,7 @@ namespace Cinema.Controllers
             vm.Hall = item.Hall;
             vm.Seat = item.Seat;
             vm.UserId = _userManager.GetUserId(HttpContext.User);
-
+            ViewBag.id = item.Id;
 
             return View(vm);
            
@@ -86,7 +86,7 @@ namespace Cinema.Controllers
                 
                 TempData["success"] = "Please Select another seat, This number occupied";
             }
-            ViewBag.id = showId;
+            
             
             return RedirectToAction("BookNow");
         }
@@ -165,7 +165,7 @@ namespace Cinema.Controllers
 
         public IActionResult Index()
         {
-            string h1;
+            
             var getMovieList = _context.MovieDetails.ToList();
             foreach(var item in getMovieList)
             {
@@ -264,6 +264,12 @@ namespace Cinema.Controllers
         { 
             var model = _context.ShowTimes.Where(p => p.Id == id && p.DateAndTimeS > DateTime.Now );
             ViewBag.id = id;
+         
+            if(model.Count() == 0)
+            {
+                var item = _context.MovieDetails.Where(p => p.Id == id).FirstOrDefault();
+              return  View("Details1", item);
+            }
             
 
             return View(model);

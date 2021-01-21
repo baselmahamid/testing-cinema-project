@@ -162,7 +162,7 @@
     <div class="center1">
         <a class="data">@TempData["success"]</a>
         <br />
-        <a class="previous" asp-action="Details" asp-route-id="ViewBag.id">Previous</a>
+        <a class="previous" asp-action="Details" asp-route-id="@ViewBag.id">Previous</a>
     </div>
     <div class="center">
         <a class="cart" asp-action="YourOrders" asp-controller="Home" asp-route-id="@Model.UserId">Your Order Details</a>

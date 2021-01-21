@@ -69,6 +69,11 @@
             background-size: cover;
             background-attachment: fixed;
         }
+        .cost {
+            color: #f5c20d;
+            font-size: 30px;
+        }
+
     </style>
 </head>
 <body>
@@ -133,14 +138,14 @@
     </div>
     <p></p>
 
-
+    <br /><br />
 
     @using (Html.BeginForm("Ordered", "Home", new { id = ViewBag.id }, FormMethod.Post))
     {
 
-
+        <h6 class="cost">Cost</h6>
         <select name="h">
-
+            <option></option>
             <option value="1">Higher</option>
             <option value="2">Lower</option>
         </select>

@@ -997,3 +997,4 @@ D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\Cinema\obj
 D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.dll
 D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.pdb
 D:\Cinema vs project\semi-final\testing-cinema-project\testing cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.genruntimeconfig.cache
+C:\Users\abu3losh\Desktop\testing-cinema-project\testing cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details1.cshtml.g.cs
